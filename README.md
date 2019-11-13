@@ -3,10 +3,10 @@
 ## Requirements
 You should have installed these:
 - Python
-- Postgresql
+- PostgreSQL
 
 ## Installation
-### Postgres setup
+### PostgreSQL setup
 1. Change to the postgres user
     ```shell
     sudo -i -u postgres
@@ -53,6 +53,10 @@ You should have installed these:
 6. Migrate the models
     ```shell
     python manage.py migrate
+    ```
+7. Create a superuser account
+    ```shell
+    python manage.py createsuperuser
     ```
 7. Run the server
     ```shell
