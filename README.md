@@ -42,7 +42,8 @@ You should have installed these:
     ```shell
     pip install -r requirements.txt
     ```
-5. Set the appropriate variables for the virtual environment in `.env`. For example:
+5.  Create a `.env` file in the project's root directory and then set the `USER`, `PASSWORD`, `HOST`, and `PORT` variables in the file.  
+    For example:
     ```shell
     USER=myuser
     PASSWORD=password
