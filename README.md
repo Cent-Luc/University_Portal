@@ -9,7 +9,7 @@ You should have installed these:
 ### Postgres setup
 1. Change to the postgres user
     ```shell
-    sudo sudo -i -u postgres
+    sudo -i -u postgres
     ```
 2. Log into a postgres session
     ```shell
