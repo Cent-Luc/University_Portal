@@ -58,7 +58,7 @@ You should have installed these:
     ```shell
     python manage.py createsuperuser
     ```
-7. Run the server
+8. Run the server
     ```shell
     python manage.py runserver
     ```
