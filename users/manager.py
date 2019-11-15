@@ -6,7 +6,7 @@ class UserManager(BaseUserManager):
     for authentication instead of usernames.
     """
     def create_user(self, email, first_name, 
-                    last_name, middle_name='', password=None, commit=True):
+                    middle_name, last_name, password=None, commit=True):
         """
         Creates and saves a superuser with the given email, first name, last name and password.
         """
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(
-            self, email, first_name, last_name, password, middle_name=''):
+            self, email, first_name, middle_name, last_name, password):
         """
         Creates and saves a superuser with the given email, first name, last name and password
         """

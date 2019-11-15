@@ -2,8 +2,13 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .models import User
+# from .forms import AddUserForm, UpdateUserForm
 
 class UserAdminCustom(UserAdmin):
+    # These two add no advantage that I can benefit from for now
+    # form = UpdateUserForm
+    # add_form = AddUserForm
+
     list_display = ('email', 'first_name', 'last_name', 'is_staff')
     list_filter = ('is_staff',)
     # Displayed when updating
