@@ -132,3 +132,6 @@ AUTH_USER_MODEL = 'users.User'
 # Redirect to home
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# For failed "is logged in" permissions
+LOGIN_URL = '/users/login/'

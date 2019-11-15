@@ -53,13 +53,23 @@ nav.bg-dark {
 SIDEBAR STYLE
 ----------------------------------------------------- */
 .btn-sidebar:hover {
-    background-color: #500b56;
+    background-color: #8e2150;
     color: #c88a16;
 }
 
 .btn-sidebar {
     color: #500b56;
     background-color: #c88a16;
+}
+
+.text-nav {
+    color: #c88a16 !important;
+}
+
+.navbar-nav a[aria-expanded="true"] {
+    background: #500b56;
+    color: #c88a16;
+    border: none;
 }
 
 .wrapper {
