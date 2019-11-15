@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party
+    'crispy_forms',
+
+    # Local
     'users.apps.UsersConfig',
 ]
 
@@ -135,3 +140,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 # For failed "is logged in" permissions
 LOGIN_URL = '/users/login/'
+
+# Since we are using bootstrap4
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
