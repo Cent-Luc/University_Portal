@@ -128,3 +128,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Our custom user model
 AUTH_USER_MODEL = 'users.User'
+
+# Redirect to home
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
