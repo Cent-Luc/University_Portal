@@ -7,7 +7,7 @@
 
 body {
     font-family: sans-serif;
-    background: #fafafa;
+    background: #fff;
 }
 p {
     font-family: sans-serif;
@@ -23,7 +23,6 @@ nav a, nav a:hover, nav a:focus {
 }
 .navbar {
     padding: 15px 10px;
-    background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -60,6 +59,16 @@ SIDEBAR STYLE
 .btn-sidebar {
     color: #500b56;
     background-color: #c88a16;
+}
+
+.btn-clairvoyant:hover {
+    color: #c88a16;
+    background-color: #500b56;
+}
+
+.btn-clairvoyant {
+    background-color: #c88a16;
+    color: #500b56;
 }
 
 .text-nav {
