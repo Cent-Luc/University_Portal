@@ -16,7 +16,7 @@ class AddUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'middle_name')
+        fields = ('email', 'first_name', 'middle_name', 'last_name')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -40,6 +40,11 @@ class AddUserForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+    def __init__(self, *args, **kwargs):
+        super(AddUserForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
 
 class UpdateUserForm(forms.ModelForm):
     """
