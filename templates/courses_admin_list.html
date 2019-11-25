@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses List{% endblock %}
+
+{% block content %}
+{% for course in object_list %}
+<div class="card">
+    <div class="card-header"><span class="font-weight-bold">{{ course.title }}</span>
+        <span class="text-muted">{{ course.code }}</span>
+    </div>
+    <div class="card-body">
+        {{ course.summary }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
