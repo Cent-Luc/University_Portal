@@ -6,7 +6,6 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     code  = models.SlugField(max_length=200, unique=True)
     summary = models.TextField(blank=True)
-
     class Meta:
         ordering = ['title']
 

@@ -17,7 +17,6 @@
     
     </p>
     {{ object.overview|linebreaks }}
-    {% if request.user.is authenticated %}
     <form action="{% url "student_enroll_course" %}" method="post">
         {{ enroll_form }}
         {% csrf_token %}
