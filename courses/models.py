@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Course(models.Model):
     title = models.CharField(max_length=200)
     code  = models.SlugField(max_length=200, unique=True)
     summary = models.TextField(blank=True)
-
     class Meta:
         ordering = ['title']
 
@@ -26,6 +26,9 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
 
 class Module(models.Model):
     unit = models.ForeignKey(Unit,

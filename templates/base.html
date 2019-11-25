@@ -11,6 +11,8 @@
 
         <!-- Site CSS -->
         <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
 
         <!-- Font Awesome -->
         <script defer 
@@ -45,9 +47,9 @@
                     <li>
                         <a href="#pageSubmenu" 
                             data-toggle="collapse" 
-                            aria-expanded="false" class="dropdown-toggle">Pages</a>
+                            aria-expanded="false" class="dropdown-toggle">Admin Tasks</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Page 1</a></li>
+                            <li><a href="{% url 'courses_admin_list' %}">Course Management</a></li>
                             <li><a href="#">Page 2</a></li>
                             <li><a href="#">Page 3</a></li>
                         </ul>
@@ -115,6 +117,9 @@
 
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'external/jquery-3.4.1.min.js' %}"></script>
         <script src="{% static 'external/jquery-3.4.1.min.js' %}"></script>
         <script src="{% static 'external/popper.min.js' %}"></script>
         <script src="{% static 'external/bootstrap/js/bootstrap.min.js' %}"></script>
