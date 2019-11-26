@@ -5,10 +5,10 @@ from django.urls import reverse
 
 class Student(models.Model):
     LEVEL_OF_STUDY_CHOICES = [
-        ("Cert", "Certificate"),
-        ("Dip", "Diploma"),
-        ("Deg", "Degree"),
-        ("Mst", "Master"),
+        ("Certificate", "Certificate"),
+        ("Diploma", "Diploma"),
+        ("Degree", "Degree"),
+        ("Master", "Master"),
     ]
     SPONSOR_CHOICES = [
         ("Govt", "Government"),

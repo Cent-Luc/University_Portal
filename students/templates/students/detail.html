@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Details</h2>
+<div>Name: {{ object.user.get_full_name }}</div>
+<div>Adm No: {{ object.student_id }}</div>
+<div>Level of Study: {{ object.level_of_study }}</div>
+<div>Sponsor: {{ object.sponsor }}</div>
+<div>Year Joined: {{ object.year_joined }}</div>
+<div>Semester Joined: {{object.semester_joined }}</div>
+<div>National Id: {{ object.national_id }}</div>
+<div>Date of Birth: {{ object.date_of_birth }}</div>
+<div>NHIF Membership No: {{ object.nhif_membership_no }} </div>
+<div>NHIF Owner: {{ object.nhif_owner }}</div>
+<div>NHIF Card Valid: {{ object.nhif_is_card_valid }}</div>
+<div>NHIF Car Valid Until: {{ object.nhif_valid_until }}</div>
+<div><a href="{% url 'student_update' student.pk %}">Edit</a></div>
+{% endblock %}

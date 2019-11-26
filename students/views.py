@@ -16,7 +16,6 @@ from .forms import StudentEnrollForm
 from .forms import CourseEnrollForm
 
 
-
 class StudentEnrollView(FormView):
     student = None
     form_class = StudentEnrollForm
@@ -45,25 +44,6 @@ class StudentEnrollCourseView(FormView):
     def get_success_url(self):
         return reverse_lazy('student_course_detail',
                             args=[self.course.id])
-
-
-class StudentRegistrationView(CreateView):
-    template_name = 'students/registration.html'
-    model = Student
-    fields = (
-        'student_id', 'level_of_study', 'sponsor', 'year_joined',
-        'semester_joined', 'national_id', 'date_of_birth',
-        'nhif_membership_no', 'nhif_owner', 'nhif_is_card_valid',
-        'nhif_valid_until'
-    )
-
-    def form_valid(self, form):
-        """
-        Overridden to always set the user field to the currently logged in user
-        """
-        user = self.request.user
-        form.instance.user = user
-        return super(StudentRegistrationView, self).form_valid(form)
 
 
 class StudentCourseListView(ListView):
@@ -95,14 +75,43 @@ class StudentCourseDetailView(DetailView):
             context['module'] = course.modules.all()[0]
             return context
 
+class StudentRegistrationView(CreateView):
+    template_name = 'students/registration.html'
+    model = Student
+    fields = (
+        'student_id', 'level_of_study', 'sponsor', 'year_joined',
+        'semester_joined', 'national_id', 'date_of_birth',
+        'nhif_membership_no', 'nhif_owner', 'nhif_is_card_valid',
+        'nhif_valid_until'
+    )
+
+    def form_valid(self, form):
+        """
+        Overridden to always set the user field to the currently logged in user
+        """
+        user = self.request.user
+        form.instance.user = user
+        return super(StudentRegistrationView, self).form_valid(form)
+
+
 class StudentUpdateView(UpdateView):
     """
     This view is used to change the details
     of a particular student
     """
+    model = Student
+    fields = (
+        'student_id', 'level_of_study', 'sponsor', 'year_joined',
+        'semester_joined', 'national_id', 'date_of_birth',
+        'nhif_membership_no', 'nhif_owner', 'nhif_is_card_valid',
+        'nhif_valid_until'
+    )
+    template_name = 'students/update.html'
 
 class StudentDetailView(DetailView):
     """
     Here a student can check his/her registration
     details and edit them as required
     """
+    model = Student
+    template_name = "students/detail.html"
