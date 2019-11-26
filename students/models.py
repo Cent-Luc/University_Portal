@@ -27,8 +27,7 @@ class Student(models.Model):
 
     student_id = models.CharField(
         max_length=13,
-        unique=True,
-        primary_key=True
+        unique=True
     )
     user = models.OneToOneField(
         get_user_model(),
@@ -61,4 +60,4 @@ class Student(models.Model):
         return self.student_id
 
     def get_absolute_url(self):
-        return reverse("student_detail", args=self.student_id)
+        return reverse("student_detail", args=[str(self.id)])
