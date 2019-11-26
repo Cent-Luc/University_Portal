@@ -25,6 +25,7 @@ urlpatterns = [
     path('students/', include('students.urls')),
     path('staff/', include('staff.urls')),
     path('fees/', include('student_fee_payments.urls')),
+    path('units/', include('units.urls')),
     path('', TemplateView.as_view(template_name='home.html'),
          name='home'),
 ]

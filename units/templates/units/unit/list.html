@@ -1,0 +1,22 @@
+ {% extends "base.html"  %}
+  
+  {% block title %}Unit List{% endblock %}
+  
+  {% block content %}
+  {% for course in unit_list %}
+  <div class="card">
+      <div class="card-header"><span class="font-weight-bold">{{ unit.title }}</span>
+          <span class="text-muted">{{ unit.code }}</span>
+      </div>
+      <div class="card-body">
+          {{ unit.summary }}
+      </div>
+      <div class="card-footer text-center text-muted">
+          <a href="{% url 'courses_admin_edit' course.pk  %}">Edit</a>
+          <a href="{% url 'courses_admin_new' %}"> New </a>
+     </div>
+ </div>
+ {% endfor %}
+ {% endblock content %}
+~                                                                                                                
+~             
