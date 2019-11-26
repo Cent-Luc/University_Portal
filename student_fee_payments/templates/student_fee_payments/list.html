@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Fees Paid Admin View{% endblock title %}
+
+{% block content %}
+<h1>Fee Payments</h1>
+<p>Click on an email to update a fee payment</p>
+<table class="table table-hover">
+    <caption>List of Payments</caption>
+    <thead class="text-clairvoyant bg-pizza">
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Year</th>
+          <th scope="col">Semester</th>
+          <th scope="col">Fee Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for payment in object_list %}
+
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>
+            <a href="{% url 'StudentFeePayment_edit' payment.pk %}">{{ payment.student.user.email }}</a>
+        </td>
+        <td>{{ payment.student.user.get_full_name }}</td>
+        <td>{{ payment.learning_year }}</td>
+        <td>{{ payment.learning_semester }}</td>
+        <td>{{ payment.fee_amount }}</td>
+    </tr>
+
+{% if forloop.last %}
+    </tbody>
+</table>
+{% endif %}
+{% endfor %}
+{% endblock content %}
