@@ -7,18 +7,19 @@ from .models import StudentFeePayment
 class StudentFeePaymentCreateView(CreateView):
     model = StudentFeePayment
     fields = ("student", "learning_year", "learning_semester", "fee_amount")
-    template_name = 'StudentFeePayment_create.html'
+    template_name = 'student_fee_payments/add.html'
     success_url = reverse_lazy('StudentFeePayment_list')
 
 class StudentFeePaymentListView(ListView):
     model = StudentFeePayment
-    template_name = 'StudentFeePayment_list.html'
+    template_name = 'student_fee_payments/list.html'
+    ordering = ['-learning_year', 'learning_semester']
 
 class StudentFeePaymentDetailView(DetailView):
     model = StudentFeePayment
-    template_name = 'StudentFeePayment_detail.html'
+    template_name = 'student_fee_payments/detail.html'
 
 class StudentFeePaymentUpdateView(UpdateView):
     model = StudentFeePayment
-    template_name = 'StudentFeePayment_edit.html'
-            
+    field = ("learning_year", "learning_semester", "fee_amount")
+    template_name = 'student_fee_payments/edit.html'

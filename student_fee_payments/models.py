@@ -14,7 +14,8 @@ class StudentFeePayment(models.Model):
         ("Sept-Dec", "Sept - Dec"),
     ]
     learning_year = models.IntegerField('Year of Study', default=int(datetime.now().year))
-    learning_semester = models.CharField('Semester of Study' ,
+    learning_semester = models.CharField(
+        'Semester of Study',
         max_length=15,
         choices=semester
     )
