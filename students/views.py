@@ -1,28 +1,32 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView
+
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+
 from django.views.generic.edit import FormView
+from django.views.generic.list import ListView
+
+from courses.models import Course
+from .models import Student
+
 from .forms import StudentEnrollForm
 from .forms import CourseEnrollForm
-from django.views.generic.list import ListView
-from courses.models import Course
-from django.views.generic.detail import DetailView
 
 
-# Create your views here.
 
 class StudentEnrollView(FormView):
     student = None
     form_class = StudentEnrollForm
 
     def form_valid(self, form):
-        self.student =form.cleaned_data['student']
+        self.student = form.cleaned_data['student']
         self.student.students.add(self.request.user)
         return super(StudentEnrollView,
                      self).form_valid(form)
-        
+
         def get_success_url(self):
             return reverse_lazy('student_enroll_detail',
                                 args=[self.student.id])
@@ -43,21 +47,24 @@ class StudentEnrollCourseView(FormView):
                             args=[self.course.id])
 
 
-
 class StudentRegistrationView(CreateView):
-    template_name ='students/registration.html'
-    form_class = UserCreationForm
-    success_url =reverse_lazy('students_course_list')
+    template_name = 'students/registration.html'
+    model = Student
+    fields = (
+        'student_id', 'level_of_study', 'sponsor', 'year_joined',
+        'semester_joined', 'national_id', 'date_of_birth',
+        'nhif_membership_no', 'nhif_owner', 'nhif_is_card_valid',
+        'nhif_valid_until'
+    )
 
     def form_valid(self, form):
-        result = super(StudentRegistrationView,
-                       self).form_valid(form)
+        """
+        Overridden to always set the user field to the currently logged in user
+        """
+        user = self.request.user
+        form.instance.user = user
+        return super(StudentRegistrationView, self).form_valid(form)
 
-        cd = form.cleaned_data
-        user = authenticate(username=cd['username'],
-                            password=cd['password1'])
-        login(self.request, user)
-        return result
 
 class StudentCourseListView(ListView):
     model = Course
@@ -87,3 +94,15 @@ class StudentCourseDetailView(DetailView):
             # get first module
             context['module'] = course.modules.all()[0]
             return context
+
+class StudentUpdateView(UpdateView):
+    """
+    This view is used to change the details
+    of a particular student
+    """
+
+class StudentDetailView(DetailView):
+    """
+    Here a student can check his/her registration
+    details and edit them as required
+    """

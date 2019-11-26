@@ -1,20 +1,34 @@
 from django.urls import path
-from . import views
+
+from .views import (
+    StudentUpdateView,
+    StudentDetailView,
+    StudentRegistrationView,
+    StudentEnrollCourseView,
+    StudentCourseListView,
+    StudentCourseDetailView,
+)
 
 urlpatterns = [
-    path('register/',
-         views.StudentRegistrationView.as_view(),
+    path('<int:pk>/edit/',
+         StudentUpdateView.as_view(),
+         name='student_update'),
+    path('<int:pk>',
+         StudentDetailView.as_view(),
+         name='student_detail'),
+    path('new/',
+         StudentRegistrationView.as_view(),
          name='student_registration'),
     path('enroll-course/',
-         views.StudentEnrollCourseView.as_view(),
+         StudentEnrollCourseView.as_view(),
          name='student_enroll_course'),
     path('courses/',
-         views.StudentCourseListView.as_view(),
+         StudentCourseListView.as_view(),
          name='student_course_list'),
     path('course/<pk>/',
-         views.StudentCourseDetailView.as_view(),
+         StudentCourseDetailView.as_view(),
          name=' student_course_detail'),
     path('course/<pk>/<module_id>/',
-         views.StudentCourseDetailView.as_view(),
+         StudentCourseDetailView.as_view(),
          name='student_course_detail_module'),
 ]
