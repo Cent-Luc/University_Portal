@@ -52,8 +52,8 @@ nav.bg-dark {
 SIDEBAR STYLE
 ----------------------------------------------------- */
 .btn-sidebar:hover {
-    background-color: #8e2150;
-    color: #c88a16;
+    background-color: #9a6a11 !important;
+    color: #650e6d !important;
 }
 
 .btn-sidebar {
@@ -118,7 +118,7 @@ SIDEBAR STYLE
     color: #500b56;
 }
 #sidebar ul li a:hover {
-    background-color: #8e2150;
+    background-color: rgba(0, 0, 0, 0.1);
     color: #c88a16;
 }
 #sidebar ul li.active > a, a[aria-expanded="true"] {

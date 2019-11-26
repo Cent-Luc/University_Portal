@@ -1,17 +1,64 @@
+from datetime import datetime
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.urls import reverse
 
-# Create your models here.
 class Student(models.Model):
-    student_id = models.CharField(max_length=13, unique=True)
-    level_of_study = models.CharField(max_length=200)
-    sponsor = models.CharField(max_length=200)
-    year_joined = models.DateTimeField(auto_now_add=True)
-    semester_joined = models.CharField(max_length=200)
-    national_id = models.IntegerField(unique=True)
-    date_of_birth = models.DateTimeField
-    nhif_owner = models.CharField(max_length=200)
-    nhif_membership_no = models.IntegerField(unique=True)
-    is_card_valid = models.BooleanField
-    valid_until = models.DateTimeField(auto_now_add=True)
+    LEVEL_OF_STUDY_CHOICES = [
+        ("Cert", "Certificate"),
+        ("Dip", "Diploma"),
+        ("Deg", "Degree"),
+        ("Mst", "Master"),
+    ]
+    SPONSOR_CHOICES = [
+        ("Govt", "Government"),
+        ("Self", "Self"),
+        ("Other", "Other"),
+    ]
+    SEMESTER_JOINED_CHOICES = [
+        ("Jan-Apr", "Jan - Apr"),
+        ("May-Aug", "May - Aug"),
+        ("Sept-Dec", "Sept - Dec"),
+    ]
+    NHIF_CARD_OWNER_CHOICES = [
+        ("Self", "Self"),
+        ("Guardian", "Guardian"),
+    ]
 
+    student_id = models.CharField(
+        max_length=13,
+        unique=True,
+        primary_key=True
+    )
+    user = models.OneToOneField(
+        get_user_model(),
+        on_delete=models.CASCADE
+    )
+    level_of_study = models.CharField(
+        max_length=15,
+        choices=LEVEL_OF_STUDY_CHOICES
+    )
+    sponsor = models.CharField(
+        max_length=15,
+        choices=SPONSOR_CHOICES
+    )
+    year_joined = models.IntegerField(default=int(datetime.now().year))
+    semester_joined = models.CharField(
+        max_length=15,
+        choices=SEMESTER_JOINED_CHOICES
+    )
+    national_id = models.IntegerField(unique=True)
+    date_of_birth = models.DateField()
+    nhif_owner = models.CharField(
+        max_length=15,
+        choices=NHIF_CARD_OWNER_CHOICES
+    )
+    nhif_membership_no = models.IntegerField(unique=True)
+    nhif_is_card_valid = models.BooleanField(default=False)
+    nhif_valid_until = models.DateField()
+
+    def __str__(self):
+        return self.student_id
+
+    def get_absolute_url(self):
+        return reverse("student_detail", args=self.student_id)
