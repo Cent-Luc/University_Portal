@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import (
-    StudentFeePaymentCreateView,    
+    StudentFeePaymentCreateView,
     StudentFeePaymentListView,
     StudentFeePaymentDetailView,
     StudentFeePaymentUpdateView,
@@ -21,6 +21,6 @@ urlpatterns = [
         StudentFeePaymentDetailView.as_view(),
         name='StudentFeePayment_detail'),
     path(
-        '', StudentFeePaymentCreateView.as_view(),
+        '', StudentFeePaymentListView.as_view(),
         name='StudentFeePayment_list'),
 ]
