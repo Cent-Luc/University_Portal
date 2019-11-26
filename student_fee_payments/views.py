@@ -14,11 +14,11 @@ class StudentFeePaymentListView(ListView):
     template_name = 'student_fee_payments/list.html'
     ordering = ['-learning_year', 'learning_semester', 'student__user__email']
 
-class StudentFeePaymentDetailView(DetailView):
-    model = StudentFeePayment
-    template_name = 'student_fee_payments/detail.html'
+# class StudentFeePaymentDetailView(DetailView):
+    # model = StudentFeePayment
+    # template_name = 'student_fee_payments/detail.html'
 
 class StudentFeePaymentUpdateView(UpdateView):
     model = StudentFeePayment
-    field = ("learning_year", "learning_semester", "fee_amount")
+    fields = ("learning_year", "learning_semester", "fee_amount")
     template_name = 'student_fee_payments/edit.html'

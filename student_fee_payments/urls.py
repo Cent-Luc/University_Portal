@@ -16,10 +16,10 @@ urlpatterns = [
         '<int:pk>/edit/',
         StudentFeePaymentUpdateView.as_view(),
         name='StudentFeePayment_edit'),
-    path(
-        '<int:pk>/',
-        StudentFeePaymentDetailView.as_view(),
-        name='StudentFeePayment_detail'),
+    # path(
+        # '<int:pk>/',
+        # StudentFeePaymentDetailView.as_view(),
+        # name='StudentFeePayment_detail'),
     path(
         '', StudentFeePaymentListView.as_view(),
         name='StudentFeePayment_list'),
