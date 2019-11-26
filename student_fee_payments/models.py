@@ -4,7 +4,7 @@ from datetime import datetime
 from students.models import Student
 
 class StudentFeePayment(models.Model):
-    student_id = models.ForeignKey(
+    student = models.ForeignKey(
         Student,
         on_delete=models.CASCADE
     )

@@ -1,0 +1,14 @@
+{%extends'base.html'%}
+{%block content%}
+<div class="StudentFeePayment-entry">
+    <h2>{{object.title}}</h2>
+     <p>by {{object.author}} | {{object.date}}</p>
+     <p>{{object.body}}</p>
+</div>
+
+<p><a href="{%url'StudentFeePayment_edit.pk'%}">Edit</a>|
+    <p><a href="{%url'StudentFeePayment_delete.pk'%}">Delete</a>
+</p>
+<p>Back to <a href="{%url'StudentFeePayment_list'%}">All Records</p>
+
+{%endblock content%}    
