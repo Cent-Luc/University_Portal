@@ -18,16 +18,16 @@ class StaffRegistrationView(LoginRequiredMixin, CreateView):
         form.instance.user = user
         return super(StaffRegistrationView, self).form_valid(form)
 
-class StaffUpdateView(UpdateView):
+class StaffUpdateView(LoginRequiredMixin, UpdateView):
     model = Staff
     fields = ('national_id', 'category')
     template_name = "staff/update.html"
 
-class StaffDetailView(DetailView):
+class StaffDetailView(LoginRequiredMixin, DetailView):
     model = Staff
     template_name = "staff/detail.html"
 
-class StaffVerificationView(UpdateView):
+class StaffVerificationView(LoginRequiredMixin, SuperuserRequiredMixin, UpdateView):
     model = Staff
     fields = ('national_id', 'category', 'is_verified')
     template_name = "staff/verify.html"
@@ -35,7 +35,7 @@ class StaffVerificationView(UpdateView):
     def get_success_url(self):
         return reverse_lazy("staff_list")
 
-class StaffListView(ListView):
+class StaffListView(LoginRequiredMixin, SuperuserRequiredMixin, ListView):
     model = Staff
     template_name = 'staff/list.html'
     ordering = ['is_verified', 'user__email']
