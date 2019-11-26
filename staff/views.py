@@ -1,10 +1,14 @@
+from braces.views import (
+    LoginRequiredMixin,
+    SuperuserRequiredMixin,
+)
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView, CreateView
 from django.urls import reverse_lazy
 
 from .models import Staff
 
-class StaffRegistrationView(CreateView):
+class StaffRegistrationView(LoginRequiredMixin, CreateView):
     model = Staff
     template_name = "staff/registration.html"
     fields = ('national_id', 'category')
