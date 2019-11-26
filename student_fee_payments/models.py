@@ -1,0 +1,21 @@
+from django.db import models
+from datetime import datetime
+
+from students.models import Student
+
+class StudentFeePayment(models.Model):
+    student_id = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE
+    )
+    semester = [
+        ("Jan-Apr", "Jan - Apr"),
+        ("May-Aug", "May - Aug"),
+        ("Sept-Dec", "Sept - Dec"),
+    ]
+    learning_year = models.IntegerField('Year of Study', default=int(datetime.now().year))
+    learning_semester = models.CharField('Semester of Study' ,
+        max_length=15,
+        choices=semester
+    )
+    fee_amount = models.IntegerField('Amount Paid')
