@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html"  %}
 
 {% block title %}Courses List{% endblock %}
 
@@ -12,8 +12,9 @@
         {{ course.summary }}
     </div>
     <div class="card-footer text-center text-muted">
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
+        <a href="{% url 'courses_admin_edit' course.pk  %}">Edit</a>
+        <a href="{% url 'courses_admin_delete' course.pk  %}">Delete</a>
+        <a href="{% url 'courses_admin_new' %}"> New </a>
     </div>
 </div>
 {% endfor %}

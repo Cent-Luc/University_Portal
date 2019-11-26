@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Details</h1>
+<div>Name: {{ object.user.get_full_name }}</div>
+<div>ID Number: {{ object.national_id }}</div>
+<div>Category: {{ object.category }}</div>
+<div><a href="{% url 'staff_edit' staff.pk %}">Edit</a></div>
+{% endblock %}

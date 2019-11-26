@@ -5,6 +5,14 @@
     background-color: #c88a16;
 }
 
+.text-pizza {
+    color: #c88a16;
+}
+
+.text-clairvoyant {
+    color: #500b56;
+}
+
 body {
     font-family: sans-serif;
     background: #fff;
