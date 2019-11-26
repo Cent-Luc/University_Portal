@@ -18,4 +18,5 @@ class StaffUpdateView(UpdateView):
     pass
 
 class StaffDetailView(DetailView):
-    pass
+    model = Staff
+    template_name = "staff/detail.html"
