@@ -15,7 +15,9 @@ class StaffRegistrationView(CreateView):
         return super(StaffRegistrationView, self).form_valid(form)
 
 class StaffUpdateView(UpdateView):
-    pass
+    model = Staff
+    fields = ('national_id', 'category')
+    template_name = "staff/update.html"
 
 class StaffDetailView(DetailView):
     model = Staff
