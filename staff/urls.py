@@ -5,6 +5,7 @@ from .views import (
     StaffUpdateView,
     StaffDetailView,
     StaffVerificationView,
+    StaffListView,
 )
 
 urlpatterns = [
@@ -20,4 +21,7 @@ urlpatterns = [
     path("new/",
          StaffRegistrationView.as_view(),
          name="staff_new"),
+    path("",
+         StaffListView.as_view(),
+         name="staff_list"),
 ]

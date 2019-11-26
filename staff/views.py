@@ -2,7 +2,7 @@ from braces.views import (
     LoginRequiredMixin,
     SuperuserRequiredMixin,
 )
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.views.generic.edit import UpdateView, CreateView
 from django.urls import reverse_lazy
 
@@ -23,11 +23,19 @@ class StaffUpdateView(UpdateView):
     fields = ('national_id', 'category')
     template_name = "staff/update.html"
 
+class StaffDetailView(DetailView):
+    model = Staff
+    template_name = "staff/detail.html"
+
 class StaffVerificationView(UpdateView):
     model = Staff
     fields = ('national_id', 'category', 'is_verified')
     template_name = "staff/verify.html"
+    
+    def get_success_url(self):
+        return reverse_lazy("staff_list")
 
-class StaffDetailView(DetailView):
+class StaffListView(ListView):
     model = Staff
-    template_name = "staff/detail.html"
+    template_name = 'staff/list.html'
+    ordering = ['is_verified', 'user__email']
