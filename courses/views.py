@@ -20,7 +20,7 @@ class CoursesAdminDetailView(DetailView):
 
 class CoursesAdminUpdateView(UpdateView):
     model = models.Course
-    fields = ['title', 'summary',]
+    fields = ['title', 'code', 'summary',]
     template_name = 'courses_admin_edit.html'
 
 class CoursesAdminDeleteView(DeleteView):

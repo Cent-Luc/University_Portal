@@ -3,19 +3,22 @@
 {% block title %}Courses List{% endblock %}
 
 {% block content %}
+<a role="button" 
+   class="btn btn-primary mb-3"
+    href="{% url 'courses_admin_new' %}"> +New </a>
 {% for course in object_list %}
-<div class="card">
-    <div class="card-header"><span class="font-weight-bold">{{ course.title }}</span>
-        <span class="text-muted">{{ course.code }}</span>
-    </div>
-    <div class="card-body">
-        {{ course.summary }}
-    </div>
-    <div class="card-footer text-center text-muted">
-        <a href="{% url 'courses_admin_edit' course.pk  %}">Edit</a>
-        <a href="{% url 'courses_admin_delete' course.pk  %}">Delete</a>
-        <a href="{% url 'courses_admin_new' %}"> New </a>
-    </div>
+<div class="jumbotron pt-4 pb-2">
+    <h4>{{ course.title }}(<small>{{ course.code }}</small>)</h4>
+  <hr class="my-4">
+  <p>{{ course.summary }}</p>
+  <p class="lead">
+        <a role="button" 
+           class="btn btn-primary"
+            href="{% url 'courses_admin_edit' course.pk  %}">Edit</a>
+        <a role="button" 
+           class="btn btn-danger"
+            href="{% url 'courses_admin_delete' course.pk  %}">Delete</a>
+  </p>
 </div>
 {% endfor %}
 {% endblock content %}

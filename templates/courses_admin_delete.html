@@ -1,14 +1,18 @@
-{% extends "base.html"  %}
-{% block title %} Delete Course {% endblock %}
-{% block content %}
-  <h1> Delete Course "{{ course.title }}" </h1>
+{% extends "base.html" %}
 
-  <div class="module">
-      <form action="" method="post">
-          {% csrf_token %}
-          <p>Are you sure you want to delete "{{ course  }}"?</p>
-          <input type="submit" class="button" value="confirm">
-      </form>
-  </div>
+{% block title %} Delete Course {% endblock %}
+
+{% block content %}
+<div class="container"><div class="row justify-content-md-center ">
+    <div class="col-sm-6">
+    <h1>Delete Course "{{ course.code }}"?</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ course }}"?</p>
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a class="btn btn-success" href="{% url 'courses_admin_list' %}">Cancel</a>
+    </form>
+    </div>
+</div></div>
 {% endblock %}
 
