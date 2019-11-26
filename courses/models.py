@@ -16,6 +16,7 @@ class Course(models.Model):
     def get_absolute_url(self):
         return reverse("courses_admin_list")
 
+
 class Unit(models.Model):
     course = models.ForeignKey(Course,
                                related_name='courses',

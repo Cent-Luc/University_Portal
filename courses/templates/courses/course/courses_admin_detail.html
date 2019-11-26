@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ course.title }}
+
+{% endblock %}
+{% block content %}
+{% with course=unit.course %}
+<h1> 
+    {{ course.title }} 
+</h1>
+<div class="module">
+    <h2>Overview</h2>
+    <p>
+    <a href="{% url "courses_admin_edit" course.pk %}">
+        {{ course.title }}</a>.
+    {{ unit.modules.count }} modules. | <a href="{% url "courses_admin_delete' course.pk %}">Delete</a>
+    
+    </p>
+    {{ object.overview|linebreaks }}
+    <form action="{% url "student_enroll_unit" %}" method="post">
+        {{ enroll_form }}
+        {% csrf_token %}
+        <input type="submit" class="button" value="Enroll now">
+    </form>
+    {% else %}
+    <a  href="{% url "unit_registration" %}" class="button">
+        Register to enroll
+    </a>
+    {% endif %}
+</div>
+{% endwith %}
+{% endblock %}

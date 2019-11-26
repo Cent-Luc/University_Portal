@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView,  UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models
+from units.forms import UnitEnrollForm
 
 class CoursesAdminListView(ListView):
     model = models.Course
