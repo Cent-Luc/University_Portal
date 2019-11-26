@@ -19,6 +19,11 @@ class StaffUpdateView(UpdateView):
     fields = ('national_id', 'category')
     template_name = "staff/update.html"
 
+class StaffVerificationView(UpdateView):
+    model = Staff
+    fields = ('national_id', 'category', 'is_verified')
+    template_name = "staff/verify.html"
+
 class StaffDetailView(DetailView):
     model = Staff
     template_name = "staff/detail.html"
