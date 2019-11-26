@@ -14,7 +14,8 @@ class StudentFeePaymentListView(ListView):
     template_name = 'student_fee_payments/list.html'
     ordering = ['-learning_year', 'learning_semester', 'student__user__email']
 
-# class StudentFeePaymentDetailView(DetailView):
+class StudentFeePaymentDetailView(DetailView):
+    pass
     # model = StudentFeePayment
     # template_name = 'student_fee_payments/detail.html'
 
