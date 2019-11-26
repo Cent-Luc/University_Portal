@@ -11,9 +11,9 @@
 <div class="module">
     <h2>Overview</h2>
     <p>
-    <a href="{% url "courses" course.code %}">
+    <a href="{% url "courses_admin_edit" course.pk %}">
         {{ course.title }}</a>.
-    {{ unit.modules.count }} modules.
+    {{ unit.modules.count }} modules. | <a href="{% url "courses_admin_delete' course.pk %}">Delete</a>
     
     </p>
     {{ object.overview|linebreaks }}
