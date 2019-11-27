@@ -30,8 +30,8 @@ class CourseRegistrationView(LoginRequiredMixin, UserPassesTestMixin, CreateView
 
 class CourseRegistrationUpdateView(LoginRequiredMixin, UpdateView):
     model = CourseRegistration
-    fields = ('user', 'category', 'is_verified')
-    template_name = "update.html"
+    fields = ('course', 'learning_year', 'learning_semester')
+    template_name = "edit.html"
 
 class CourseRegistrationDetailView(LoginRequiredMixin, DetailView):
     model = CourseRegistration
