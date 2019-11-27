@@ -7,13 +7,18 @@ Sign Up
 {% endblock %}
 
 {% block content %}
-<h1>Enter Additional Details</h1>
-<div class="module">
-    <p>Enter your details to create an account: </p>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input class="btn btn-primary" type="submit" value="Save">
-    </form>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-6">
+            <h2>Enter Additional Details</h2>
+            <div class="line"></div>
+            <p>Enter your details to register as a student: </p>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

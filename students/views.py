@@ -101,17 +101,20 @@ class StudentUpdateView(UpdateView):
     """
     model = Student
     fields = (
-        'student_id', 'level_of_study', 'sponsor', 'year_joined',
+        'level_of_study', 'sponsor', 'year_joined',
         'semester_joined', 'national_id', 'date_of_birth',
         'nhif_membership_no', 'nhif_owner', 'nhif_is_card_valid',
         'nhif_valid_until'
     )
     template_name = 'students/update.html'
 
-class StudentDetailView(DetailView):
+class StudentDetailView(ListView):
     """
     Here a student can check his/her registration
     details and edit them as required
     """
     model = Student
     template_name = "students/detail.html"
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)

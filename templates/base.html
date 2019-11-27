@@ -31,14 +31,15 @@
 
                 <ul class="list-unstyled components">
                     <p>My Portal</p>
-                    <li class="active">
+                    {% comment %}<li class="active">{% endcomment %}
+                    <li>
                         <a href="#homeSubmenu" 
                            data-toggle="collapse" 
-                           aria-expanded="false" class="dropdown-toggle">Home</a>
+                           aria-expanded="false" class="dropdown-toggle">Student Actions</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Home 1</a></li>
-                            <li><a href="#">Home 2</a></li>
-                            <li><a href="#">Home 3</a></li>
+                            <li>
+                                <a href="{% url 'student_detail' %}">Your Student Information</a>
+                            </li>
                         </ul>
                     </li>
                     <li><a href="#">About</a></li>

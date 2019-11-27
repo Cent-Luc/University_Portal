@@ -60,4 +60,4 @@ class Student(models.Model):
         return self.student_id
 
     def get_absolute_url(self):
-        return reverse("student_detail", args=[str(self.id)])
+        return reverse("student_detail")

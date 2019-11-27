@@ -126,9 +126,20 @@ SIDEBAR STYLE
     color: #500b56;
 }
 #sidebar ul li a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #c88a16;
+    background-color: #c88a16;
+    color: #500b56;
 }
+
+#sidebar ul li a:hover {
+    background-color: #c88a16;
+    color: #500b56;
+}
+
+#sidebar ul li ul li a:hover {
+    background-color: #b17a14;
+    color: #500b56;
+}
+
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #500b56;
     background: #c88a16;
