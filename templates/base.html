@@ -30,7 +30,7 @@
                 </div>
 
                 <ul class="list-unstyled components">
-                    <p>My Portal</p>
+                    {% comment %}<p>My Portal</p>{% endcomment %}
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'coursereg_list' %}">Courses</a></li>
                     {% comment %}<li class="active">{% endcomment %}
@@ -44,7 +44,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="#">About</a></li>
+                    {% comment %}<li><a href="#">About</a></li>{% endcomment %}
                     {% if request.user.is_superuser %}
                     <li>
                         <a href="#pageSubmenu" 
@@ -58,7 +58,7 @@
                     </li>
                     {% endif %}
                     {% endif %}
-                    <li><a href="#">Contact</a></li>
+                    {% comment %}<li><a href="#">Contact</a></li>{% endcomment %}
                 </ul>
             </nav>
 

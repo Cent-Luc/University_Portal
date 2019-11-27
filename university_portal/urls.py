@@ -25,6 +25,7 @@ urlpatterns = [
     path('staff/', include('staff.urls')),
     path('fees/', include('student_fee_payments.urls')),
     path('units/', include('units.urls')),
-    path('coursereg/', include('course_registration.urls')),
+    path('course_reg/', include('course_registration.urls')),
+    path('sem_enroll/', include('semester_enrollment.urls')),
     path('', include('home.urls')),
 ]

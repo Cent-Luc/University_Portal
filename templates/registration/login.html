@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% load crispy_forms_tags %}
 
 {% block title %}Log In{% endblock title %}
@@ -8,7 +10,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h2>Log In</h2>
+            <img class="img-fluid" src="{% static 'images/logo.png' %}" alt="">
             <div class="line"></div>
             <form method="post">
                 {% csrf_token %}

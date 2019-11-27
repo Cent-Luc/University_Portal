@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'course_registration.apps.CourseRegistrationConfig',
     'units.apps.UnitsConfig',
     'home.apps.HomeConfig',
+    'semester_enrollment.apps.SemesterEnrollmentConfig'
 ]
 
 MIDDLEWARE = [

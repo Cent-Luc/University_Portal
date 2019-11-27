@@ -22,7 +22,8 @@
                 <div><b>Semester Joined:</b> {{ object.learning_semester }}</div>
                 </p>
                 <a class="btn btn-primary" href="{% url 'coursereg_edit' object.pk %}">Edit</a>
-                {% comment %}<a class="btn btn-danger" href="{% url 'coursereg_edit' object.pk %}">Edit</a>{% endcomment %}
+                <a class="btn btn-primary" 
+                    href="{% url 'sem_enroll_new' object.pk %}">Enroll for a New Semester</a>
             </div>
         </div>
     </div>
@@ -33,10 +34,12 @@
     <div class="col-sm-6">
         <h2>Information</h2>
         <div class="line"></div>
-        <p>You are not registered as a student. Click the button below to register as a student</p>
+        <p>You are seeing this page because you haven't either registered
+        as a student or enrolled in any course.</p>
         <p>
             <a class="btn btn-primary" 
                 href="{% url 'student_registration' %}">Register as Student</a>
+            <a class="btn btn-primary" href="{% url 'coursereg_new' %}">Enroll to a Course</a>
         </p>
     </div>
 </div>

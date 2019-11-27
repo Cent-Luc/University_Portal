@@ -1,32 +1,35 @@
 from django.db import models
+
+from course_registration.models import CourseRegistration
 from students.models import Student
-from courses.models import Course
+
 from datetime import datetime
 from django.urls import reverse
 
-class CourseRegistration(models.Model):
+class SemesterEnrollment(models.Model):
     SEMESTER_CHOICES = [
         ("Jan-Apr", "Jan - Apr"),
         ("May-Aug", "May - Aug"),
         ("Sept-Dec", "Sept - Dec"),
     ]
+
+    enrolled_course = models.ForeignKey(
+        CourseRegistration,
+        on_delete=models.CASCADE
+    )
     student = models.ForeignKey(
         Student,
         on_delete=models.CASCADE
     )
-    course = models.ForeignKey(
-        Course,
-        on_delete=models.CASCADE
-    )
-    learning_year = models.IntegerField('Year Joined', default=int(datetime.now().year))
-    learning_semester = models.CharField(
-        'Semester Joined',
+
+    year = models.IntegerField(default=int(datetime.now().year))
+    semester = models.CharField(
         max_length=15,
         choices=SEMESTER_CHOICES
     )
 
     def __str__(self):
-        return self.course.code
+        return str(self.year)
 
     def get_absolute_url(self):
-        return reverse("coursereg_list")
+        return reverse("sem_enroll_detail", args=[str(self.id)])
