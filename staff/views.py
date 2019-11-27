@@ -8,28 +8,23 @@ from django.urls import reverse_lazy
 
 from .models import Staff
 
-class StaffRegistrationView(LoginRequiredMixin, CreateView):
+class StaffRegistrationView(LoginRequiredMixin, SuperuserRequiredMixin, CreateView):
     model = Staff
     template_name = "staff/registration.html"
-    fields = ('national_id', 'category')
+    fields = ('user', 'category', 'is_verified')
 
-    def form_valid(self, form):
-        user = self.request.user
-        form.instance.user = user
-        return super(StaffRegistrationView, self).form_valid(form)
-
-class StaffUpdateView(LoginRequiredMixin, UpdateView):
+class StaffUpdateView(LoginRequiredMixin, SuperuserRequiredMixin, UpdateView):
     model = Staff
-    fields = ('national_id', 'category')
+    fields = ('user', 'category', 'is_verified')
     template_name = "staff/update.html"
 
-class StaffDetailView(LoginRequiredMixin, DetailView):
+class StaffDetailView(LoginRequiredMixin, SuperuserRequiredMixin, DetailView):
     model = Staff
     template_name = "staff/detail.html"
 
 class StaffVerificationView(LoginRequiredMixin, SuperuserRequiredMixin, UpdateView):
     model = Staff
-    fields = ('national_id', 'category', 'is_verified')
+    fields = ('user', 'category', 'is_verified')
     template_name = "staff/verify.html"
     
     def get_success_url(self):

@@ -10,7 +10,6 @@ class Staff(models.Model):
         ("Nurse", "Nurse"),
     ]
 
-    national_id = models.IntegerField(unique=True)
     user = models.OneToOneField(
         get_user_model(),
         on_delete=models.CASCADE

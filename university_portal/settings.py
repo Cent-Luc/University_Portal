@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'student_fee_payments.apps.StudentFeePaymentsConfig',
     'course_registration.apps.CourseRegistrationConfig',
     'units.apps.UnitsConfig',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE = [

@@ -7,12 +7,18 @@ Edit Your Details
 {% endblock %}
 
 {% block content %}
-<h1>Verify Staff</h1>
-<div>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input class="btn btn-primary" type="submit" value="Save">
-    </form>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-5">
+            <h2>Verify Staff</h2>
+            <div class="line"></div>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
 </div>
 {% endblock %}
