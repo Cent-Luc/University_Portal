@@ -3,6 +3,6 @@ from .models import SemesterEnrollment
 
 class SemesterEnrollmentAdmin(admin.ModelAdmin):
     model = SemesterEnrollment
-    list_display = ['enrolled_course', 'year', 'semester']
+    list_display = ['student', 'enrolled_course', 'year', 'semester']
 
 admin.site.register(SemesterEnrollment, SemesterEnrollmentAdmin)
