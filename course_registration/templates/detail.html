@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object_list %}
+{% for object in object_list %}
+<div class="row">
+    <h2 class="col-sm-3">Your Details</h2>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">
+                <div><b>Name:</b> {{ object.user.get_full_name }}</div>
+                <div><b>Adm No:</b> {{ object.student_id }}</div>
+                <div><b>Level of Study:</b> {{ object.level_of_study }}</div>
+                <div><b>Sponsor:</b> {{ object.sponsor }}</div>
+                <div><b>Year Joined:</b> {{ object.year_joined }}</div>
+                <div><b>Semester Joined:</b> {{object.semester_joined }}</div>
+                <div><b>National Id:</b> {{ object.national_id }}</div>
+                <div><b>Date of Birth:</b> {{ object.date_of_birth }}</div>
+                <div><b>NHIF Membership No:</b> {{ object.nhif_membership_no }} </div>
+                <div><b>NHIF Owner:</b> {{ object.nhif_owner }}</div>
+                <div><b>NHIF Card Valid:</b> {{ object.nhif_is_card_valid }}</div>
+                <div><b>NHIF Car Valid Until:</b> {{ object.nhif_valid_until }}</div>
+                </p>
+                <a class="btn btn-primary" href="{% url 'student_update' object.pk %}">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Information</h2>
+        <div class="line"></div>
+        <p>You are not registered as a student. Click the button below to register as a student</p>
+        <p>
+            <a class="btn btn-primary" 
+                href="{% url 'student_registration' %}">Register as Student</a>
+        </p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

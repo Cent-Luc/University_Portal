@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object_list %}
+{% for object in object_list %}
+<div class="row">
+    <h2 class="col-sm-5">Your Courses</h2>
+</div>
+<div class="row">
+    <div class="col-sm-2 my-2">
+        <a class="btn btn-primary" href="{% url 'coursereg_new' %}">+ Join Another Course</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">
+                <div><b>Course:</b> {{ object.course.title }}</div>
+                <div><b>Year Joined:</b> {{ object.learning_year }}</div>
+                <div><b>Semester Joined:</b> {{ object.learning_semester }}</div>
+                </p>
+                <a class="btn btn-primary" href="{% url 'coursereg_edit' object.pk %}">Edit</a>
+                {% comment %}<a class="btn btn-danger" href="{% url 'coursereg_edit' object.pk %}">Edit</a>{% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Information</h2>
+        <div class="line"></div>
+        <p>You are not registered as a student. Click the button below to register as a student</p>
+        <p>
+            <a class="btn btn-primary" 
+                href="{% url 'student_registration' %}">Register as Student</a>
+        </p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

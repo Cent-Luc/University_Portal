@@ -31,6 +31,8 @@
 
                 <ul class="list-unstyled components">
                     <p>My Portal</p>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'coursereg_list' %}">Courses</a></li>
                     {% comment %}<li class="active">{% endcomment %}
                     <li>
                         <a href="#homeSubmenu" 
@@ -43,7 +45,6 @@
                         </ul>
                     </li>
                     <li><a href="#">About</a></li>
-                    {% if user.is_authenticated %}
                     {% if request.user.is_superuser %}
                     <li>
                         <a href="#pageSubmenu" 
@@ -57,7 +58,6 @@
                     </li>
                     {% endif %}
                     {% endif %}
-                    <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
