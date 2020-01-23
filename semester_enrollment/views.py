@@ -1,6 +1,5 @@
-from braces.views import (
+from django.contrib.auth.mixins import (
     LoginRequiredMixin,
-    SuperuserRequiredMixin,
     UserPassesTestMixin,
 )
 from django.shortcuts import get_object_or_404

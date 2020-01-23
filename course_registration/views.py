@@ -1,6 +1,5 @@
-from braces.views import (
+from django.contrib.auth.mixins import (
     LoginRequiredMixin,
-    SuperuserRequiredMixin,
     UserPassesTestMixin,
 )
 from django.views.generic import DetailView, ListView
