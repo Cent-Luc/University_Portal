@@ -2,14 +2,14 @@
 
 {% block content %}
 {% if object_list %}
-{% for object in object_list %}
-<div class="row">
-    <h2 class="col-sm-5">Your Courses</h2>
-</div>
 <div class="row">
     <div class="col-sm-2 my-2">
         <a class="btn btn-primary" href="{% url 'coursereg_new' %}">+ Join Another Course</a>
     </div>
+</div>
+{% for object in object_list %}
+<div class="row">
+    <h2 class="col-sm-5">Your Courses</h2>
 </div>
 <div class="row">
     <div class="col-sm-6">
