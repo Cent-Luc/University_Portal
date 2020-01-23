@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <h2 class="col-sm-3">Semester Details</h2>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">
+                <div><b>Enrolled Course:</b> {{ object.enrolled_course.course.title }}</div>
+                <div><b>Year:</b> {{ object.year }}</div>
+                <div><b>Semester:</b> {{ object.semester }}</div>
+                </p>
+                <a class="btn btn-primary" href="{% url 'sem_enroll_edit' object.pk %}">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

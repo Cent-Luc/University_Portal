@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}All registered Semesters{% endblock title %}
+
+{% block content %}
+<h1>All Enrolled Semesters</h1>
+<table class="table table-hover">
+    <caption>List of Semesters</caption>
+    <thead class="text-clairvoyant bg-pizza">
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Semester - Year</th>
+          <th scope="col">Enrolled Course</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for semester in object_list %}
+
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>
+            <a href="{% url 'sem_enroll_detail' semester.pk %}">
+                {{ semester.semester }} - {{ semester.year }}
+            </a>
+        <td>{{ semester.enrolled_course }}</td>
+    </tr>
+
+{% if forloop.last %}
+    </tbody>
+</table>
+{% endif %}
+{% endfor %}
+{% endblock content %}
