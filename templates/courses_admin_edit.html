@@ -3,26 +3,26 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    {% if object %}
-        Edit Course "{{ course.code }}"
-    {% endif %}
+{% if object %}
+Edit Course "{{ course.code }}"
+{% endif %}
 {% endblock %}
 
 {% block content %}
 <div class="container"><div class="row justify-content-md-center ">
-    <div class="col-sm-6">
-    <h1>
+    <div class="col-sm-6 col-md-12 col-lg-6 py-3 my-3 shadow border rounded">
+      <h1>
         {% if object %}
-            Edit Course "{{ course.code }}"
+        Edit Course "{{ course.code }}"
         {% else %}
-            Create a new course
+        Create a new course
         {% endif %}
-    </h1>
-    <form action="" method="post">
+      </h1>
+      <form action="" method="post">
         {{ form|crispy }}
         {% csrf_token %}
-       <p><input class="btn btn-primary" type="submit" value="Save course"></p>
-    </form>
+        <p><input class="btn btn-primary" type="submit" value="Save course"></p>
+      </form>
     </div>
-</div></div>
-{% endblock %}
+  </div></div>
+  {% endblock %}
