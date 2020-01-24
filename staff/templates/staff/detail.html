@@ -2,20 +2,21 @@
 
 {% block content %}
 <div class="row">
-    <h2 class="col-sm-3">Staff Details</h2>
+  <h2 class="col-sm-3">Staff Details</h2>
 </div>
-<div class="row">
-<div class="col-sm-6">
-    <div class="card">
+<div class="row justify-content-md-center">
+  <div class="col-sm-6 col-md-7 col-lg-6 py-3 my-3">
+    <div class="card shadow">
       <div class="card-body">
+        <h2 class="card-title">Staff Details</h2>
         <p class="card-text">
-            <div><b>Name:</b> {{ object.user.get_full_name }}</div>
-            <div><b>Email:</b> {{ object.user.email }}</div>
-            <div><b>Category:</b> {{ object.category }}</div>
+        <div><b>Name:</b> {{ object.user.get_full_name }}</div>
+        <div><b>Email:</b> {{ object.user.email }}</div>
+        <div><b>Category:</b> {{ object.category }}</div>
         </p>
         <a class="btn btn-primary" href="{% url 'staff_edit' staff.pk %}">Edit</a>
       </div>
     </div>
-</div>
+  </div>
 </div>
 {% endblock %}
