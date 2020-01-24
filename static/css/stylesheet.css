@@ -52,3 +52,7 @@ nav.bg-dark {
     color: #500b56 !important;
     border-color: #500b56;
 }
+
+.mt-60, .container{
+    margin-top: 53px;
+}
