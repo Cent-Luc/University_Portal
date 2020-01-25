@@ -1,47 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if object_list %}
-<div class="row">
-    <div class="col-sm-2 my-2">
-        <a class="btn btn-primary" href="{% url 'coursereg_new' %}">+ Join Another Course</a>
+<div class="container">
+  {% if object_list %}
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6 col-md-9 col-lg-6 mt-3">
+      <a class="btn btn-primary" href="{% url 'coursereg_new' %}">+ Join Another Course</a>
     </div>
-</div>
-{% for object in object_list %}
-<div class="row">
-    <h2 class="col-sm-5">Your Courses</h2>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-title">{{ object.course.code }}</p>
-                <p class="card-text">
-                <div><b>Course:</b> {{ object.course.title }}</div>
-                <div><b>Year Joined:</b> {{ object.learning_year }}</div>
-                <div><b>Semester Joined:</b> {{ object.learning_semester }}</div>
-                </p>
-                <a class="btn btn-primary" href="{% url 'coursereg_edit' object.pk %}">Edit</a>
-                <a class="btn btn-primary" 
-                    href="{% url 'sem_enroll_new' object.pk %}">Enroll for a New Semester</a>
-            </div>
+    <h2 class="col-sm-6 col-md-9 col-lg-6">Your Courses</h2>
+  </div>
+  {% for object in object_list %}
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6 col-md-9 col-lg-6 mt-2">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">{{ object.course.code }}</p>
+          <p class="card-text">
+          <div><b>Course:</b> {{ object.course.title }}</div>
+          <div><b>Year Joined:</b> {{ object.learning_year }}</div>
+          <div><b>Semester Joined:</b> {{ object.learning_semester }}</div>
+          </p>
+          <a class="btn btn-primary" href="{% url 'coursereg_edit' object.pk %}">Edit</a>
+          <a class="btn btn-primary" 
+             href="{% url 'sem_enroll_new' object.pk %}">Enroll for a New Semester</a>
         </div>
+      </div>
     </div>
-</div>
-{% endfor %}
-{% else %}
-<div class="row">
-    <div class="col-sm-6">
-        <h2>Information</h2>
-        <div class="line"></div>
-        <p>You are seeing this page because you haven't either registered
-        as a student or enrolled in any course.</p>
-        <p>
-            <a class="btn btn-primary" 
-                href="{% url 'student_registration' %}">Register as Student</a>
-            <a class="btn btn-primary" href="{% url 'coursereg_new' %}">Enroll to a Course</a>
-        </p>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6 col-md-9 col-lg-6 py-3 my-3">
+      <h2>Information</h2>
+      <div class="line"></div>
+      <p>You are seeing this page because you haven't either registered
+      as a student or enrolled in any course.</p>
+      <p>
+      <a class="btn btn-primary" 
+         href="{% url 'student_registration' %}">Register as Student</a>
+      <a class="btn btn-primary" href="{% url 'coursereg_new' %}">Enroll to a Course</a>
+      </p>
     </div>
+  </div>
+  {% endif %}
 </div>
-{% endif %}
 {% endblock %}

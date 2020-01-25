@@ -16,8 +16,8 @@ class CourseRegistrationView(LoginRequiredMixin, UserPassesTestMixin, CreateView
     fields = ('course', 'learning_year', 'learning_semester')
     login_url = "student_detail"
 
-    def test_func(self, user):
-        return (Student.objects.filter(user=user).exists())
+    def test_func(self):
+        return (Student.objects.filter(user=self.request.user).exists())
 
     def form_valid(self, form):
         """
