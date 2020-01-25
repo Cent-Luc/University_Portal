@@ -18,11 +18,11 @@ class SemesterEnrollmentCreateView(LoginRequiredMixin, UserPassesTestMixin, Crea
     fields = ('year', 'semester')
     login_url = "student_detail"
 
-    def test_func(self, user):
+    def test_func(self):
         """
         Check if the user is student
         """
-        return (Student.objects.filter(user=user).exists())
+        return (Student.objects.filter(user=self.request.user).exists())
 
     def dispatch(self, request, *args, **kwargs):
         self.enrolled_course = get_object_or_404(CourseRegistration, pk=kwargs['course_reg_pk'])
