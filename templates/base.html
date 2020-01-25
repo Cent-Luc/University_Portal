@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,
-                                                 initial-scale=1, shrink-to-fit=no">
+                                                   initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'external/bootstrap/css/bootstrap.min.css' %}">
@@ -38,8 +38,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         {% if user.is_authenticated %}
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'coursereg_list' %}">Courses</a>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle" 
+              href="#" 
+              id="navbarDropdown" 
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Course Actions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'coursereg_list' %}">
+                Courses
+              </a>
+              <a class="dropdown-item" href="{% url 'sem_enroll_list' %}">
+                Enrolled Semeseters
+              </a>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -59,8 +73,9 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle" 
-              href="#" id="navbarDropdown2" 
-                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              href="#" 
+              id="navbarDropdown2" 
+              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Admin Tasks
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
