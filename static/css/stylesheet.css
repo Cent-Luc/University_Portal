@@ -1,58 +1,59 @@
 .bg-clairvoyant {
-    background-color: #500b56;
+  background-color: #500b56;
 }
 .bg-pizza {
-    background-color: #c88a16;
+  background-color: #c88a16;
 }
 
 nav.navbar-dark {
-    color: #d7cfb7 !important;
+  color: #d7cfb7 !important;
 }
 
 nav.bg-dark {
-    background: #500b56 !important;
+  background: #500b56 !important;
 }
 
 .navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
+  box-shadow: none;
+  outline: none !important;
+  border: none;
 }
 
 .btn-sidebar:hover {
-    background-color: #9a6a11 !important;
-    color: #650e6d !important;
+  background-color: #9a6a11 !important;
+  color: #650e6d !important;
 }
 
 .btn-sidebar {
-    color: #500b56;
-    background-color: #c88a16;
+  color: #500b56;
+  background-color: #c88a16;
 }
 
 .btn-outline-primary:hover {
-    background-color: #c88a16 !important;
-    color: #500b56 !important;
-    border-color: #500b56;
+  background-color: #c88a16 !important;
+  color: #500b56 !important;
+  border-color: #500b56;
 }
 
 .btn-outline-primary {
-    color: #c88a16 !important;
-    background-color: #500b56 !important;
-    border-color: #c88a16;
+  color: #c88a16 !important;
+  background-color: #500b56 !important;
+  border-color: #c88a16;
 }
 
 .btn-primary:hover {
-    color: #c88a16 !important;
-    background-color: #500b56 !important;
-    border-color: #c88a16;
+  color: #c88a16 !important;
+  background-color: #500b56 !important;
+  border-color: #c88a16;
 }
 
 .btn-primary {
-    background-color: #c88a16 !important;
-    color: #500b56 !important;
-    border-color: #500b56;
+  background-color: #c88a16 !important;
+  color: #500b56 !important;
+  border-color: #500b56;
 }
 
-.mt-60, .container{
-    margin-top: 53px;
+.mt-60,
+.container {
+  margin-top: 80px;
 }
